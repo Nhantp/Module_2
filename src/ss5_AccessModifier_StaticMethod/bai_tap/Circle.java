@@ -16,5 +16,12 @@ public class Circle {
     public double getArea(){
         return radius*radius*3.14;
     }
+    public static void main(String[] args) {
+        Circle circle=new Circle(10.5);
+        double r= circle.getRadius();
+        double a =circle.getArea();
+        System.out.println("Radius: "+r);
+        System.out.println("Area: "+a);
+    }
 }
 
