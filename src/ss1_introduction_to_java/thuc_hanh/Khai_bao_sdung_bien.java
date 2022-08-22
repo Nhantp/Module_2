@@ -1,5 +1,4 @@
 package ss1_introduction_to_java.thuc_hanh;
-
 public class Khai_bao_sdung_bien {
     public static void main(String[] args) {
         int i=10;
