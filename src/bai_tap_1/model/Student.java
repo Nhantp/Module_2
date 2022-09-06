@@ -15,11 +15,6 @@ public class Student extends Person {
         this.score = score;
     }
 
-    public Student(String class1, float score) {
-        this.class1 = class1;
-        this.score = score;
-    }
-
     public String getClass1() {
         return class1;
     }

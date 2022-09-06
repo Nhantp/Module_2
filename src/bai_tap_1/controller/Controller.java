@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Controller {
     public static void main(String[] args) {
-        StudentManagement studentManagement = new StudentManagement();
         do {
         System.out.println("1.Hoc sinh.\n" + "2.Giang vien\n" + "3.Thoát");
             System.out.println("Nhap vao lua chon: ");
@@ -12,10 +11,15 @@ public class Controller {
             int check = input.nextInt();
             switch (check){
                 case 1:{
-                    studentManagement.studentMenu();
+                    StudentManagement.studentMenu();
+                    break;
                 }
                 case 2:{
-
+                    TeacherManagement.teacherMenu();
+                    break;
+                }
+                case 3:{
+                    System.exit(0);
                 }
             }
 

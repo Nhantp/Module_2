@@ -1,7 +1,10 @@
 package bai_tap_1.service;
 
-public interface IStudentService {
-     void add();
+public interface ITeacherService {
+
+    void add();
+
     void remove();
+
     void display();
 }

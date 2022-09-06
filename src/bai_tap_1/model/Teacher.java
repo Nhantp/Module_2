@@ -8,14 +8,12 @@ public class Teacher extends Person {
     Teacher(){
     }
 
-    public Teacher(int   id, String name, String dateOfBirth, String gender, String specialize) {
+    public Teacher(int id, String name, String dateOfBirth, String gender, String specialize) {
         super(id, name, dateOfBirth, gender);
         this.specialize = specialize;
     }
 
-    public Teacher(String specialize) {
-        this.specialize = specialize;
-    }
+
 
     public String getSpecialize() {
         return specialize;
