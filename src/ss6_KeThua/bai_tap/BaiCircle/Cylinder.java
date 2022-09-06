@@ -27,15 +27,16 @@ public class Cylinder extends Circle {
     public void setRadius(double radius) {
         super.setRadius(radius);
     }
+
     @Override
     public String toString() {
         return super.toString()+"Volume:"+getVolume()+"\n";
     }
 
     public static void main(String[] args) {
-        Cylinder cylinder=new Cylinder();
+        Cylinder cylinder=new Cylinder(3.0,"Red",4.3,true);
         System.out.println(cylinder);
-        cylinder=new Cylinder(3,"Red",7,true);
+        cylinder=new Cylinder();
         System.out.println(cylinder);
     }
 }

@@ -8,13 +8,19 @@ public class ComparableCircle extends Circle implements Comparable {
         super(radius,color,filled);
     }
 
+
     @Override
-    public int compareTo(ComparableCircle comparableCircle) {
-        if(getRadius()>comparableCircle.getRadius()) return 1;
-        else if (getRadius()<comparableCircle.getArea()) {
-            return -1;
-        }else return 1;
+    public String toString() {
+        return "Radius: "+radius+ " Area: "+getArea();
     }
+    @Override
+    public int compareTo(Object o) {
+        ComparableCircle circle= (ComparableCircle) o;
+        if(getRadius()<circle.getRadius()) return 1;
+        else if (getRadius()>circle.getRadius()) return -1;
+        else return 0;
+    }
+
 
     public static void main(String[] args) {
         ComparableCircle[] circle=new ComparableCircle[3];
@@ -27,8 +33,8 @@ public class ComparableCircle extends Circle implements Comparable {
         }
         Arrays.sort(circle);
         System.out.println("After-sorted");
-        for (ComparableCircle comparableCircle:circle){
-            System.out.println(comparableCircle);
+        for (ComparableCircle comparableCircle1:circle){
+            System.out.println(comparableCircle1);
         }
     }
 }
