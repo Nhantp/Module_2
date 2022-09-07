@@ -5,7 +5,6 @@ import bai_tap_1.repository.IStudentRepository;
 import bai_tap_1.repository.impl.StudentRepository;
 import bai_tap_1.service.IStudentService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,8 +27,7 @@ public class StudentService implements IStudentService {
       System.out.println("Nhap vao diem:");
       float score = Integer.parseInt(scanner.nextLine());
       System.out.println("Ban da them thanh cong");
-      Student student = new Student(id, name, dateOfBirth, gender, class1, score);
-      return student;
+      return new Student(id, name, dateOfBirth, gender, class1, score);
    }
 
    @Override
@@ -62,25 +60,3 @@ public class StudentService implements IStudentService {
 
 
 
-//   @Override
-//   public void add() {
-//
-//   }
-//
-//   public void remove(){
-//      System.out.println("Nhap vao id muon xoa:");
-//      int removeStudent=Integer.parseInt(input.nextLine());
-//      for (int i = 0 ; i <studentList.size(); i++) {
-//         if(removeStudent==studentList.get(i).getId()){
-//            studentList.remove(i);
-//         }
-//      }
-//      System.out.println("Da xoa hoc sinh co id:"+removeStudent);
-//   }
-//   public void display(){
-//      for (int i = 0; i <studentList.size(); i++) {
-//         System.out.println(studentList.get(i));
-//      }
-//      System.out.println("Hien thi thanh cong.");
-//   }
-//}

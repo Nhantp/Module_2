@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherRepository implements ITeacherRepository {
-    private List<Teacher>teacherList=new ArrayList<>();
+    private final List<Teacher>teacherList=new ArrayList<>();
 
     @Override
     public void add(Teacher teacher) {

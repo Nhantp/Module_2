@@ -6,7 +6,7 @@ import bai_tap_1.service.impl.StudentService;
 import java.util.Scanner;
 
 public class StudentManagement  {
-    private static IStudentService iStudentService=new StudentService();
+    private static final IStudentService iStudentService=new StudentService();
     private static Scanner input = new Scanner(System.in);
     public static void studentMenu() {
         do {
