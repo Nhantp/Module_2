@@ -27,7 +27,7 @@ public class MyList<E> {
             add(size,value);
             size++;
         }
-        
+
     }
 
     public void add(int index, E element){
@@ -85,7 +85,7 @@ public class MyList<E> {
         System.out.println("Them vao phuong thuc:");
         System.out.println(myList1.size);
         for (int i = 0; i < myList1.size; i++) {
-             System.out.println(myList1.get(i));
+             System.out.println(myList1 );
         }
         myList1.clear();
         System.out.println(myList1.size);

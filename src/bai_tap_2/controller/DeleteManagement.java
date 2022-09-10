@@ -25,7 +25,8 @@ public class DeleteManagement {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1: {
-                    iCarService.removeCar();
+                    int index = Integer.parseInt(scanner.nextLine());
+                    iCarService.removeCar(index);
                     break;
                 }
                 case 2: {

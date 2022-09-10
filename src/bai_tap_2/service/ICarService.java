@@ -8,5 +8,5 @@ public interface ICarService<C extends Vehicle> {
     void displayCar();
 
     void searchCar(String bienSoXe);
-    void removeCar();
+    void removeCar(int index);
 }

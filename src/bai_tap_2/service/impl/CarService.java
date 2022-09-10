@@ -41,16 +41,20 @@ public class CarService implements ICarService {
 
 
     @Override
-    public void removeCar() {
-        System.out.println("Nhập vào biển số xe cần xóa:");
-        List<Car>carList=iCarRepository.getAll();
-        String index=scanner.nextLine();
-        for (int i=0; i<carList.size(); i++){
-            if(index.equals(carList.get(i).getBienSoXe())){
-                carList.remove(i);
-            }
+    public void removeCar(int bienSoxe) {
+        List<Car> carList=iCarRepository.getAll();
+//        if(carList.indexOf(bienSoxe)){
+
         }
-    }
+//        System.out.println("Nhập vào biển số xe cần xóa:");
+//        List<Car>carList=iCarRepository.getAll();
+//        String index=scanner.nextLine();
+//        for (int i=0; i<carList.size(); i++){
+//            if(index.equals(carList.get(i).getBienSoXe())){
+//                carList.remove(i);
+//            }
+//        }
+//    }
 
     public Car infoCar() {
         System.out.println("Nhập vào biển kiểm soát: ");
