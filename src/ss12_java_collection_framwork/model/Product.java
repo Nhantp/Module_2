@@ -1,7 +1,5 @@
 package ss12_java_collection_framwork.model;
 
-import java.util.Comparator;
-import java.util.Objects;
 
 public class Product implements Comparable<Product> {
     private String id;
@@ -22,7 +20,7 @@ public class Product implements Comparable<Product> {
     }
 
     public Product(String id) {
-        this.id=id;
+        this.id = id;
     }
 
     public String getId() {
@@ -80,13 +78,13 @@ public class Product implements Comparable<Product> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product ) o;
+        Product product = (Product) o;
         return id.equals(product.id);
     }
 
 
     @Override
     public int compareTo(Product o) {
-       return (int) (this.getPrice()-o.getPrice());
+        return (int) (this.getPrice() - o.getPrice());
     }
 }

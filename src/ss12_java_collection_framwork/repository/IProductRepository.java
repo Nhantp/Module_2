@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IProductRepository {
     void addProduct(Product product);
+
     List<Product> findAll();
 
     void editProduct(Product product);

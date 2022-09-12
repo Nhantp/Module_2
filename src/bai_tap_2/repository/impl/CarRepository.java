@@ -6,7 +6,7 @@ import bai_tap_2.repository.ICarRepository;
 import java.util.ArrayList;
 import java.util.List;
 public class CarRepository implements ICarRepository {
-    private static List<Car>carList=new ArrayList<>();
+    private static final List<Car>carList=new ArrayList<>();
     static {
         carList.add(new Car("123","Mec","2022","nhan",10,"dulich"));
         carList.add(new Car("124","Mec","2022","nhan",10,"dulich"));

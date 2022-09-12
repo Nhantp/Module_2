@@ -1,27 +1,26 @@
 package ss12_java_collection_framwork.service;
-
 import ss12_java_collection_framwork.model.Product;
 import ss12_java_collection_framwork.repository.IProductRepository;
 import ss12_java_collection_framwork.repository.ProductRepository;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
-    private static final IProductRepository iProductRepository=new ProductRepository();
-    private final Scanner scanner=new Scanner(System.in);
+    private static final IProductRepository iProductRepository = new ProductRepository();
+    private final Scanner scanner = new Scanner(System.in);
+
     @Override
     public void addProduct() {
-        Product product=this.infoProduct();
+        Product product = this.infoProduct();
         iProductRepository.addProduct(product);
     }
 
     @Override
     public void editProduct(String id) {
-        List<Product> productList=iProductRepository.findAll();
-        for (int i=0; i<productList.size(); i++) {
-            if (productList.get(i).getId().equals(id)) {
+        List<Product> productList = iProductRepository.findAll();
+        for (Product product : productList) {
+            if (product.getId().equals(id)) {
                 do {
                     System.out.println("1.Sửa id.");
                     System.out.println("2.Sửa tên");
@@ -35,31 +34,31 @@ public class ProductService implements IProductService {
                         case 1: {
                             System.out.println("Nhập vào id:");
                             String idCode = scanner.nextLine();
-                            productList.get(i).setId(idCode);
+                            product.setId(idCode);
                             break;
                         }
                         case 2: {
                             System.out.println("Nhập vào tên:");
                             String name = scanner.nextLine();
-                            productList.get(i).setName(name);
+                            product.setName(name);
                             break;
                         }
                         case 3: {
                             System.out.println("Nhập vào giá:");
                             double price = Double.parseDouble(scanner.nextLine());
-                            productList.get(i).setPrice(price);
+                            product.setPrice(price);
                             break;
                         }
                         case 4: {
                             System.out.println("Nhập vào số lượng:");
                             int amount = Integer.parseInt(scanner.nextLine());
-                            productList.get(i).setAmount(amount);
+                            product.setAmount(amount);
                             break;
                         }
                         case 5: {
                             System.out.println("Nhập vào hạn sử dụng:");
                             String expiry = scanner.nextLine();
-                            productList.get(i).setExpiry(expiry);
+                            product.setExpiry(expiry);
                             break;
                         }
                         case 6: {
@@ -75,11 +74,11 @@ public class ProductService implements IProductService {
 
     @Override
     public void removeProduct(String id) {
-        List<Product> productList=iProductRepository.findAll();
-        int index=productList.indexOf(new Product(id));
-        if(index!=-1){
+        List<Product> productList = iProductRepository.findAll();
+        int index = productList.indexOf(new Product(id));
+        if (index != -1) {
             productList.remove(index);
-        }else {
+        } else {
             System.out.println("Id empty");
         }
 
@@ -87,8 +86,8 @@ public class ProductService implements IProductService {
 
     @Override
     public void displayProduct() {
-        List<Product> productList=iProductRepository.findAll();
-        for(Product product:productList){
+        List<Product> productList = iProductRepository.findAll();
+        for (Product product : productList) {
             System.out.println(product);
         }
 
@@ -96,9 +95,9 @@ public class ProductService implements IProductService {
 
     @Override
     public void searchProduct(String id) {
-        List<Product> productList=iProductRepository.findAll();
-        for (Product product : productList){
-            if(product.getId().equals(id)){
+        List<Product> productList = iProductRepository.findAll();
+        for (Product product : productList) {
+            if (product.getId().equals(id)) {
                 System.out.println(product);
             }
         }
@@ -107,27 +106,27 @@ public class ProductService implements IProductService {
 
     @Override
     public void sortProduct() {
-        List<Product>productList=iProductRepository.findAll();
+        List<Product> productList = iProductRepository.findAll();
         Collections.sort(productList);
-        for (Product product:productList){
+        for (Product product : productList) {
             System.out.println(product);
         }
 
     }
 
-    public Product infoProduct(){
+    public Product infoProduct() {
         System.out.println("Nhập vào id:");
-        String id=scanner.nextLine();
+        String id = scanner.nextLine();
         System.out.println("Nhập vào tên:");
-        String name=scanner.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Nhập vào giá:");
-        double price=Double.parseDouble(scanner.nextLine());
+        double price = Double.parseDouble(scanner.nextLine());
         System.out.println("Nhập vào số lượng:");
-        int amount=Integer.parseInt(scanner.nextLine());
+        int amount = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập vào hạn sử dụng:");
-        String expiry=scanner.nextLine();
+        String expiry = scanner.nextLine();
 
-        return new Product(id,name,price,amount,expiry);
+        return new Product(id, name, price, amount, expiry);
 
     }
 

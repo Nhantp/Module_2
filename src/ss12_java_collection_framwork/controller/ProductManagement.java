@@ -7,7 +7,8 @@ import ss12_java_collection_framwork.service.ProductService;
 import java.util.Scanner;
 
 public class ProductManagement {
-    private static final IProductService iProductService=new ProductService();
+    private static final IProductService iProductService = new ProductService();
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         do {
@@ -28,13 +29,13 @@ public class ProductManagement {
                 }
                 case 2: {
                     System.out.println("Nhập vào id cần sửa: ");
-                    String id=scanner.nextLine();
+                    String id = scanner.nextLine();
                     iProductService.editProduct(id);
                     break;
                 }
                 case 3: {
                     System.out.println("Nhập vào id cần xóa");
-                    String index=scanner.nextLine();
+                    String index = scanner.nextLine();
                     iProductService.removeProduct(index);
                     break;
                 }
@@ -44,7 +45,7 @@ public class ProductManagement {
                 }
                 case 5: {
                     System.out.println("Nhập vào id cần tìm kiếm:");
-                    String id=scanner.nextLine();
+                    String id = scanner.nextLine();
                     iProductService.searchProduct(id);
                     break;
                 }
@@ -57,6 +58,6 @@ public class ProductManagement {
 
                 }
             }
-        } while (true) ;
+        } while (true);
     }
 }

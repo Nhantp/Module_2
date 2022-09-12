@@ -1,9 +1,11 @@
 package Case_Study.models;
 
-public class House extends Facility{
+public class House extends Facility {
     private String roomStandard;
     private int floor;
-    public House(){}
+
+    public House() {
+    }
 
     public House(String serviceName, double usableArea, double taxExpenses, int numberOfPeople,
                  int taxType, String roomStandard, int floor) {
@@ -31,5 +33,13 @@ public class House extends Facility{
 
     public void setFloor(int floor) {
         this.floor = floor;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "roomStandard='" + roomStandard + '\'' +
+                ", floor=" + floor +
+                '}';
     }
 }
