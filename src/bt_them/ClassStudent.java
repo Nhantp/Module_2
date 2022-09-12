@@ -18,12 +18,12 @@ public class ClassStudent {
     }
 
     static {
-        studentsList.add(new Student("1", "nhan", "Quang Nam", 1));
-        studentsList.add(new Student("2", "hung", "Hue", 1));
+        studentsList.add(new Student("1", "nhan", "Quang Nam", 9.8));
+        studentsList.add(new Student("2", "hung", "Quang Nam", 9.9));
         studentsList.add(new Student("3", "an", "Hue", 3));
         studentsList.add(new Student("4", "manh", "DN", 4));
         studentsList.add(new Student("5", "yen", "QB", 2));
-        studentsList.add(new Student("6", "hu", "QN", 10));
+        studentsList.add(new Student("6", "hu", "Quang Nam", 1));
     }
 
     public String getClassName() {
@@ -74,9 +74,13 @@ public class ClassStudent {
 
     public void addPoint() {
         for (Student student : studentsList) {
-            boolean check = student.getAdvantage() + 0.3f > 10;
-            if (!check && student.getAddress().equals("Quang nam")) {
+            boolean check = student.getAdvantage() + 0.3 > 10;
+            if (!check && student.getAddress().equals("Quang Nam")) {
                 student.setAdvantage(student.getAdvantage() + 0.3);
+                System.out.println(student);
+            }
+            if (check) {
+                student.setAdvantage(10);
                 System.out.println(student);
             }
         }
