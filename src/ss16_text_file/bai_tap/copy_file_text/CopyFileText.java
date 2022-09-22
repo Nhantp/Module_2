@@ -27,17 +27,19 @@ public class CopyFileText {
 
     public static void writeFile(String filePath, List<String> data) throws IOException {
         FileWriter fileWriter = new FileWriter(filePath);
+        BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+
         for(String string:data){
-            fileWriter.write(string);
-            fileWriter.write("\n");
+            bufferedWriter.write(string);
+            bufferedWriter.write("\n");
         }
-        fileWriter.close();
+        bufferedWriter.close();
     }
     public static void main(String[] args) throws IOException {
         List<String>stringList=CopyFileText.readFile("D:\\Codegym\\A05\\Module_2\\src\\ss16_text_file\\bai_tap\\copy_file_text\\data");
         for(String string:stringList){
             System.out.println(string);
         }
-        writeFile("D:\\Codegym\\A05\\Module_2\\src\\ss16_text_file\\thuc_hanh\\doc_ghi_file_student\\result.txt", stringList);
+        writeFile("D:\\Codegym\\A05\\Module_2\\src\\ss16_text_file\\bai_tap\\copy_file_text\\result", stringList);
     }
 }
