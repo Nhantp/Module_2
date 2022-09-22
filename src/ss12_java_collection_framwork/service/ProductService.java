@@ -3,6 +3,7 @@ import ss12_java_collection_framwork.model.Product;
 import ss12_java_collection_framwork.repository.IProductRepository;
 import ss12_java_collection_framwork.repository.ProductRepository;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -107,10 +108,16 @@ public class ProductService implements IProductService {
     @Override
     public void sortProduct() {
         List<Product> productList = iProductRepository.findAll();
-        Collections.sort(productList);
+//        Collections.sort(productList);
         for (Product product : productList) {
             System.out.println(product);
         }
+        Collections.sort(productList, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return 0;
+            }
+        });
 
     }
 
