@@ -51,7 +51,7 @@ public class ReadAndWrite {
         BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
         String str="";
         for(Student student:studentList){
-            str+=student.getId()+","+student.getName()+","+student.getAge()+"\n";
+            str+= student.getId()+","+student.getName()+","+student.getAge();
         }
         if(str!=null&&!str.isEmpty()){
             bufferedWriter.write(str);
