@@ -5,6 +5,7 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Scanner;
 
 public class CopyFile {
     public static void copyFileUsingStream(File source, File dest) throws IOException {
@@ -20,6 +21,7 @@ public class CopyFile {
             }
         } finally {
             inputStream.close();
+            outputStream.close();
         }
 
     }
@@ -30,10 +32,16 @@ public class CopyFile {
     }
 
     public static void main(String[] args) throws IOException {
-        File sourceFile= new File("D:\\Codegym\\A05\\Module_2\\src\\ss17_binary_file__serialization\\thuc_hanh\\data.dat");
-        File destFile=new File("D:\\Codegym\\A05\\Module_2\\src\\ss17_binary_file__serialization\\thuc_hanh\\result.dat");
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Nhap vao file nguon:");
+        String sourcePath=scanner.nextLine();
+        System.out.println("Nhap vao file dich:");
+        String destPath=scanner.nextLine();
+        File sourceFile=new File(sourcePath);
+        File destFile=new File(destPath);
         try {
             copyFileUsingJava7Files(sourceFile,destFile);
+            copyFileUsingStream(sourceFile,destFile);
         }catch (IOException e){
             System.out.println("Loi file");
             System.out.println(e.getMessage());
