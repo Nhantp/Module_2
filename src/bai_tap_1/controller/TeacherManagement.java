@@ -21,7 +21,9 @@ public class TeacherManagement {
                     break;
                 }
                 case 2:{
-                    iTeacherService.remove();
+                    System.out.println("Nhap vao giao vien co id can xoa: ");
+                    String id=scanner.nextLine();
+                    iTeacherService.remove(id);
                     break;
                 }
                 case 3:{

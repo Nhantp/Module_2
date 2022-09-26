@@ -1,14 +1,12 @@
 package bai_tap_1.model;
 
-import bai_tap_1.model.Person;
-
 public class Teacher extends Person {
     private String specialize;
 
-    Teacher(){
+    public Teacher(){
     }
 
-    public Teacher(int id, String name, String dateOfBirth, String gender, String specialize) {
+    public Teacher(String id, String name, String dateOfBirth, String gender, String specialize) {
         super(id, name, dateOfBirth, gender);
         this.specialize = specialize;
     }

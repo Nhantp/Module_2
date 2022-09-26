@@ -62,6 +62,14 @@ public class Product implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
     public String toString() {
         return "Product{" +
                 "Mã sản phẩm: " + id +
@@ -71,11 +79,4 @@ public class Product implements Serializable {
                 ", Mô tả khác: " + otherDescription + "}";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Objects.equals(id, product.id);
-    }
 }

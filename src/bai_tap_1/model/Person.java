@@ -1,12 +1,15 @@
 package bai_tap_1.model;
 
-public abstract class Person {
-    private int id;
+import java.io.Serializable;
+import java.util.Objects;
+
+public abstract class Person implements Serializable {
+    private String id;
     private String name;
     private String dateOfBirth;
     private String gender;
 
-    public Person(int id, String name, String dateOfBirth, String gender) {
+    public Person(String id, String name, String dateOfBirth, String gender) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -15,11 +18,11 @@ public abstract class Person {
     Person(){
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,6 +48,14 @@ public abstract class Person {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package bai_tap_1.model;
 
-import bai_tap_1.model.Person;
 
 public class Student extends Person {
     private String class1;
@@ -9,10 +8,13 @@ public class Student extends Person {
     public Student(){
     }
 
-    public Student(int id, String name, String dateOfBirth, String gender, String class1, float score) {
+    public Student(String id, String name, String dateOfBirth, String gender, String class1, float score) {
         super(id, name, dateOfBirth, gender);
         this.class1 = class1;
         this.score = score;
+    }
+
+    public Student(String id) {
     }
 
     public String getClass1() {
@@ -30,6 +32,7 @@ public class Student extends Person {
     public void setScore(float score) {
         this.score = score;
     }
+
 
     @Override
     public String toString() {

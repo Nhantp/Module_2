@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ProductController {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Scanner scanner=new Scanner(System.in);
         ProductService productService=new ProductService();
         do{
@@ -23,7 +23,9 @@ public class ProductController {
                     break;
                 }
                 case 3:{
-                    productService.search();
+                    System.out.println("Nhap vao id can tim kiem: ");
+                    String id=scanner.nextLine();
+                    productService.search(id);
                 }
             }
         }while (true);

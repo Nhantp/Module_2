@@ -4,7 +4,7 @@ public interface ITeacherService {
 
     void add();
 
-    void remove();
+    void remove(String id);
 
     void display();
 }

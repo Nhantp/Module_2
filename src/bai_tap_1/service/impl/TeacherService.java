@@ -18,15 +18,23 @@ public class TeacherService implements ITeacherService {
         iTeacherRepository.add(teacher);
     }
 
+
+
     @Override
-    public void remove() {
+    public void remove(String id) {
         List<Teacher> teacherList = iTeacherRepository.getAll();
-        System.out.println("Nhap vao giang vien can xoa:");
-        int removeTeacher = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < teacherList.size(); i++) {
-            if(removeTeacher==teacherList.get(i).getId()){
-                teacherList.remove(i);
+        Teacher teacherObj=new Teacher();
+        for(Teacher teacher:teacherList){
+            if(teacher.getId().equals(id)){
+                teacherObj=teacher;
             }
+        }
+        int index=teacherList.indexOf(teacherObj);
+        if(index!=-1){
+            teacherList.remove(index);
+            System.out.println("Xoa thanh cong.");
+        }else {
+            System.out.println("Not found");
         }
     }
 
@@ -41,7 +49,7 @@ public class TeacherService implements ITeacherService {
 
     private Teacher infoTeacher() {
         System.out.println("Nhap vao id:");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         System.out.println("Nhap vao ten:");
         String name = scanner.nextLine();
         System.out.println("Nhap vao ngay sinh:");
