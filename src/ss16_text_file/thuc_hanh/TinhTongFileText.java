@@ -21,7 +21,6 @@ public class TinhTongFileText {
             }
             reader.close();
             System.out.println("Tong: "+sum);
-
         }catch (Exception e){
             System.out.println("File ko ton tai.");
         }

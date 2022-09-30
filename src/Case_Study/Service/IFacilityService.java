@@ -1,15 +1,9 @@
 package Case_Study.Service;
 
 public interface IFacilityService extends IService{
+    void addHouse();
+    void addRoom();
+    void addVilla();
     @Override
-    default void display() {
-        IService.super.display();
-    }
-
-    @Override
-    default void add() {
-        IService.super.add();
-    }
-     default void displayMaintenance(){
-    }
+    void display();
 }

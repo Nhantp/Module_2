@@ -1,18 +1,12 @@
 package Case_Study.Service;
 
-public interface ICustomerService extends IService {
+public interface ICustomerService extends IService{
     @Override
-    default void display() {
-        IService.super.display();
-    }
+    void add();
 
     @Override
-    default void add() {
-        IService.super.add();
-    }
+    void display();
 
-    @Override
-    default void edit() {
-        IService.super.edit();
-    }
+    void edit(String id);
 }
+

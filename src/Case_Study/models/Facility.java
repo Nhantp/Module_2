@@ -1,21 +1,24 @@
 package Case_Study.models;
 
-public abstract class Facility {
+import java.io.Serializable;
+
+public abstract class Facility implements Serializable {
+    public static final long serialVersionUID=26L;
     private String serviceName;
-    private double Area;
-    private double chiPhi;
+    private double area;
+    private double rentalCost;
     private int maxPeople;
-    private int kieuThue;
+    private String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, double area, double chiPhi, int maxPeople, int kieuThue) {
+    public Facility(String serviceName, double area, double rentalCost, int maxPeople, String rentalType) {
         this.serviceName = serviceName;
-        Area = area;
-        this.chiPhi = chiPhi;
+        this.area=area;
+        this.rentalCost = rentalCost;
         this.maxPeople = maxPeople;
-        this.kieuThue = kieuThue;
+        this.rentalType = rentalType;
     }
 
     public String getServiceName() {
@@ -27,19 +30,19 @@ public abstract class Facility {
     }
 
     public double getArea() {
-        return Area;
+        return area;
     }
 
     public void setArea(double area) {
-        Area = area;
+        this.area = area;
     }
 
-    public double getChiPhi() {
-        return chiPhi;
+    public double getRentalCost() {
+        return rentalCost;
     }
 
-    public void setChiPhi(double chiPhi) {
-        this.chiPhi = chiPhi;
+    public void setRentalCost(double rentalCost) {
+        this.rentalCost = rentalCost;
     }
 
     public int getMaxPeople() {
@@ -50,22 +53,20 @@ public abstract class Facility {
         this.maxPeople = maxPeople;
     }
 
-    public int getKieuThue() {
-        return kieuThue;
+    public String getRentalType() {
+        return rentalType;
     }
 
-    public void setKieuThue(int kieuThue) {
-        this.kieuThue = kieuThue;
+    public void setRentalType(String rentalType) {
+        this.rentalType = rentalType;
     }
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
-                ", Area=" + Area +
-                ", chiPhi=" + chiPhi +
+        return "serviceName='" + serviceName + '\'' +
+                ", Area=" + area +
+                ", rentalCost=" + rentalCost +
                 ", maxPeople=" + maxPeople +
-                ", kieuThue=" + kieuThue +
-                '}';
+                ", rentalType=" + rentalType;
     }
 }
