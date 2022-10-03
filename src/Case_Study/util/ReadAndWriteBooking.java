@@ -3,11 +3,11 @@ package Case_Study.util;
 import Case_Study.models.Booking;
 
 import java.io.*;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ReadAndWriteBooking {
     Set<Booking> bookingSet = new TreeSet<>();
+    Booking booking=new Booking();
 
     public Set<Booking> readBooking(String filePath) {
         try {
@@ -18,7 +18,7 @@ public class ReadAndWriteBooking {
             fis.close();
             ois.close();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Loi file");
         }
         return bookingSet;
     }

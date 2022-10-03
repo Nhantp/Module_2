@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityService implements IFacilityService {
+    Facility facility=new Facility();
     IFacilityRepository iFacilityRepository = new FacilityRepository();
     Scanner scanner = new Scanner(System.in);
 
@@ -38,14 +39,23 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void display() {
+    public void display(){
         Map<Facility, Integer> linkedHashMap = iFacilityRepository.findAll();
-        for (Map.Entry<Facility, Integer> entry: linkedHashMap.entrySet()) {
+        for (Map.Entry<Facility,Integer> entry: linkedHashMap.entrySet()) {
             System.out.println(entry);
 
         }
     }
 
+    @Override
+    public void displayMaintenance() {
+        Map<Facility, Integer> linkedHashMap = iFacilityRepository.findAll();
+        for (Map.Entry<Facility, Integer> entry : linkedHashMap.entrySet()) {
+            Room Room=null;
+            linkedHashMap.computeIfPresent(Room,(k, v)->v+1);
+            System.out.println(entry);
+        }
+    }
     public Room infoRoom() {
         System.out.println("Nhap vao ten dich vu: ");
         String serviceName = scanner.nextLine();

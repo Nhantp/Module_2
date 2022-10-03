@@ -1,19 +1,20 @@
 package Case_Study.models;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public abstract class Person implements Serializable {
-    private String idCode;
-    private String name;
-    private int dateOfBirth;
-    private String gender;
-    private int phoneNumber;
-    private String email;
+    protected int idCode;
+    protected String name;
+    protected int dateOfBirth;
+    protected boolean gender;
+    protected int phoneNumber;
+    protected String email;
 
     public Person() {
     }
 
-    public Person(String idCode, String name, int dateOfBirth, String gender, int phoneNumber, String email) {
+    public Person(int idCode, String name, int dateOfBirth, boolean gender, int phoneNumber, String email) {
         this.idCode = idCode;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -22,10 +23,11 @@ public abstract class Person implements Serializable {
         this.email = email;
     }
 
-    public String getIdCode() {
+    public int getIdCode() {
         return idCode;
     }
-    public void setIdCode(String idCode) {
+
+    public void setIdCode(int idCode) {
         this.idCode = idCode;
     }
 
@@ -45,11 +47,11 @@ public abstract class Person implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getGender() {
+    public boolean isGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
@@ -68,14 +70,31 @@ public abstract class Person implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    public void infoPerson(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Nhap vao ma khach hang: ");
+        this.idCode =Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhap vao ten: ");
+        this.name = scanner.nextLine();
+        System.out.println("Nhap vao ngay sinh: ");
+        this.dateOfBirth = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhap vao gioi tinh: ");
+        this.gender= scanner.nextLine().isEmpty();
+        System.out.println("Nhap vao so dien thoai: ");
+        this.phoneNumber = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhap vao email: ");
+        this.email = scanner.nextLine();
+    }
 
     @Override
     public String toString() {
-        return "idCode='" + idCode + '\'' +
+        return "Person{" +
+                "idCode=" + idCode +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' ;
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -27,7 +27,7 @@ public class CustomerManagement {
                 }
                 case 3:{
                     System.out.println("Nhap vao id khach hang can sua:");
-                    String id=scanner.nextLine();
+                    int id=Integer.parseInt(scanner.nextLine());
                     iCustomerService.edit(id);
                     break;
                 }

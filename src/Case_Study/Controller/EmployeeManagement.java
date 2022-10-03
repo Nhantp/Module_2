@@ -27,7 +27,7 @@ public class EmployeeManagement {
                 }
                 case 3:{
                     System.out.println("Nhap vao id nhan vien can sua:");
-                    String id=scanner.nextLine();
+                    int id=Integer.parseInt(scanner.nextLine());
                     iEmployeeService.edit(id);
                     break;
                 }

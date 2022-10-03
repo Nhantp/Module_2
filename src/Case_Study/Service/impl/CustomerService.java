@@ -12,29 +12,10 @@ public class CustomerService implements ICustomerService {
     ICustomerRepository iCustomerRepository = new CustomerRepository();
     Scanner scanner = new Scanner(System.in);
 
-    private Customer infoCustomer() {
-        System.out.println("Nhap vao ma khach hang: ");
-        String idCode = scanner.nextLine();
-        System.out.println("Nhap vao ten: ");
-        String name = scanner.nextLine();
-        System.out.println("Nhap vao ngay sinh: ");
-        int dateOfBirth = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap vao gioi tinh: ");
-        String gender = scanner.nextLine();
-        System.out.println("Nhap vao so dien thoai: ");
-        int phoneNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap vao email: ");
-        String email = scanner.nextLine();
-        System.out.println("Nhap vao loai khach hang: ");
-        String customerType = scanner.nextLine();
-        System.out.println("Nhap vao dia chi: ");
-        String address = scanner.nextLine();
-        return new Customer(idCode, name, dateOfBirth, gender, phoneNumber, email, customerType, address);
-    }
-
     @Override
     public void add() {
-        Customer customer = this.infoCustomer();
+        Customer customer=new Customer();
+        customer.infoPerson();
         iCustomerRepository.add(customer);
     }
 
@@ -47,12 +28,11 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void edit(String id) {
+    public void edit(int id) {
         LinkedList<Customer> customerLinkedList =iCustomerRepository.findAll();
         for (Customer customer : customerLinkedList) {
-            if (customer.getIdCode().equals(id)) {
+            if (customer.getIdCode()==id) {
                 do {
-                    System.out.println("1.Sua id.");
                     System.out.println("2.Sua ten.");
                     System.out.println("3.Sua ngay sinh.");
                     System.out.println("4.Sua gioi tinh.");
@@ -65,10 +45,6 @@ public class CustomerService implements ICustomerService {
                     int choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1: {
-                            System.out.println("Nhap vao id:");
-                            String idCode = scanner.nextLine();
-                            customer.setIdCode(idCode);
-                            break;
                         }
                         case 2: {
                             System.out.println("Nhap vao ten:");
@@ -84,7 +60,7 @@ public class CustomerService implements ICustomerService {
                         }
                         case 4: {
                             System.out.println("Nhap vao gioi tinh:");
-                            String gender = scanner.nextLine();
+                            boolean gender = scanner.nextLine().isEmpty();
                             customer.setGender(gender);
                             break;
                         }

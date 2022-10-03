@@ -17,7 +17,7 @@ public class ReadAndWriteFacility {
             ois.close();
             fis.close();
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println("Loi file");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

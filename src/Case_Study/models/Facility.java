@@ -2,8 +2,7 @@ package Case_Study.models;
 
 import java.io.Serializable;
 
-public abstract class Facility implements Serializable {
-    public static final long serialVersionUID=26L;
+public class Facility implements Serializable {
     private String serviceName;
     private double area;
     private double rentalCost;

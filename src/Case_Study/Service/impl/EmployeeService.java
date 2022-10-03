@@ -11,30 +11,10 @@ public class EmployeeService implements IEmployeeService {
     Scanner scanner=new Scanner(System.in);
     IEmployeeRepository iEmployeeRepository=new EmployeeRepository();
 
-    private Employee infoEmployee(){
-        System.out.println("Nhap vao ma nhan vien: ");
-        String idCode=scanner.nextLine();
-        System.out.println("Nhap vao ten: ");
-        String name=scanner.nextLine();
-        System.out.println("Nhap vao ngay sinh: ");
-        int dateOfBirth=Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap vao gioi tinh: ");
-        String gender=scanner.nextLine();
-        System.out.println("Nhap vao so dien thoai: ");
-        int phoneNumber=Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap vao email: ");
-        String email=scanner.nextLine();
-        System.out.println("Nhap vao trinh do: ");
-        int level=Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap vao vi tri: ");
-        String location=scanner.nextLine();
-        System.out.println("Nhap vao trinh luong: ");
-        double salary=Double.parseDouble(scanner.nextLine());
-        return new Employee(idCode,name,dateOfBirth,gender,phoneNumber,email,level,location,salary);
-    }
     @Override
     public void add() {
-     Employee employee=this.infoEmployee();
+     Employee employee=new Employee();
+     employee.infoEmployee();
      iEmployeeRepository.add(employee);
     }
 
@@ -46,10 +26,10 @@ public class EmployeeService implements IEmployeeService {
         }
     }
 
-    public void edit(String id) {
+    public void edit(int id) {
         List<Employee> employeeList=iEmployeeRepository.findAll();
         for(Employee employee:employeeList){
-            if(employee.getIdCode().equals(id)){
+            if(employee.getIdCode()==(id)){
                 do{
                     System.out.println("1.Sua id.");
                     System.out.println("2.Sua ten.");
@@ -66,7 +46,7 @@ public class EmployeeService implements IEmployeeService {
                     switch (choice){
                         case 1:{
                             System.out.println("Nhap vao id:");
-                            String idCode=scanner.nextLine();
+                            int idCode=Integer.parseInt(scanner.nextLine());
                             employee.setIdCode(idCode);
                             iEmployeeRepository.edit();
                             break;
@@ -87,7 +67,7 @@ public class EmployeeService implements IEmployeeService {
                         }
                         case 4:{
                             System.out.println("Nhap vao gioi tinh:");
-                            String gender=scanner.nextLine();
+                            boolean gender=scanner.nextLine().isEmpty();
                             employee.setGender(gender);
                             iEmployeeRepository.edit();
                             break;
@@ -108,7 +88,7 @@ public class EmployeeService implements IEmployeeService {
                         }
                         case 7:{
                             System.out.println("Nhap vao trinh do:");
-                            int level=Integer.parseInt(scanner.nextLine());
+                            String level=scanner.nextLine();
                             employee.setLevel(level);
                             iEmployeeRepository.edit();
                             break;

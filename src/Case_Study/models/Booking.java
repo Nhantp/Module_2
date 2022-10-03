@@ -1,80 +1,59 @@
 package Case_Study.models;
 
+import org.omg.CORBA.INTERNAL;
+
 import java.io.Serializable;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Booking implements Serializable,Comparable<Booking> {
-    private String idBooking;
-    private String dateStart;
-    private String dateEnd;
-    private String idCustomer;
+    private int idBooking;
+    private int dateStart;
+    private int dateEnd;
+    private Customer customer;
     private String serviceName;
-    private String serviceType;
-    private int someContracts;
-    private double advanceDeposit;
-    private double totalPayment;;
 
     public Booking() {
     }
 
-    public Booking(String idBooking, String dateStart, String dateEnd, String idCustomer, String serviceName, String serviceType, int someContracts, double advanceDeposit, double totalPayment) {
+    public Booking(int idBooking, int dateStart, int dateEnd, Customer customer, String serviceName) {
         this.idBooking = idBooking;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
-        this.idCustomer = idCustomer;
+        this.customer = customer;
         this.serviceName = serviceName;
-        this.serviceType = serviceType;
-        this.someContracts = someContracts;
-        this.advanceDeposit = advanceDeposit;
-        this.totalPayment = totalPayment;
     }
 
-    public Booking(String idBooking, String dateStart, String dateEnd, String idCustomer, String serviceName, String serviceType) {
-        this.idBooking = idBooking;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.idCustomer = idCustomer;
-        this.serviceName = serviceName;
-        this.serviceType = serviceType;
-    }
-
-    public Booking(int someContracts, String idBooking, double advanceDeposit, double totalPayment, String idCustomer) {
-        this.someContracts = someContracts;
-        this.idBooking = idBooking;
-        this.advanceDeposit = advanceDeposit;
-        this.totalPayment = totalPayment;
-        this.idCustomer = idCustomer;
-    }
-
-    public String getIdBooking() {
+    public int getIdBooking() {
         return idBooking;
     }
 
-    public void setIdBooking(String idBooking) {
-        this.idBooking =idBooking;
+    public void setIdBooking(int idBooking) {
+        this.idBooking = idBooking;
     }
 
-    public String getDateStart() {
+    public int getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(String dateStart) {
+    public void setDateStart(int dateStart) {
         this.dateStart = dateStart;
     }
 
-    public String getDateEnd() {
+    public int getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(String dateEnd) {
+    public void setDateEnd(int dateEnd) {
         this.dateEnd = dateEnd;
     }
 
-    public String getIdCustomer() {
-        return idCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setIdCustomer(String idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public String getServiceName() {
@@ -84,58 +63,42 @@ public class Booking implements Serializable,Comparable<Booking> {
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
     }
-
-    public String getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
-
-    public int getSomeContracts() {
-        return someContracts;
-    }
-
-    public void setSomeContracts(int someContracts) {
-        this.someContracts = someContracts;
-    }
-
-    public double getAdvanceDeposit() {
-        return advanceDeposit;
-    }
-
-    public void setAdvanceDeposit(double advanceDeposit) {
-        this.advanceDeposit = advanceDeposit;
-    }
-
-    public double getTotalPayment() {
-        return totalPayment;
-    }
-
-    public void setTotalPayment(double totalPayment) {
-        this.totalPayment = totalPayment;
+    public void input(){
+        Customer customer=new Customer();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Nhap vao ma booking: ");
+        this.idBooking=Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhap vao ngay bat dau: ");
+        this.dateStart=Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhap vao ngay ket thuc: ");
+        this.dateEnd=Integer.parseInt(scanner.nextLine());
+        customer.infoCustomer();
+        System.out.println("Nhap vao ten dich vu: ");
+        this.serviceName=scanner.nextLine();
+//        System.out.println("Nhap vao loai dich vu: ");
+//        this.serviceType=scanner.nextLine();
     }
 
     @Override
     public String toString() {
         return "Booking{" +
-                "idBooking='" + idBooking + '\'' +
+                "idBooking=" + idBooking +
                 ", dateStart=" + dateStart +
                 ", dateEnd=" + dateEnd +
-                ", idCustomer='" + idCustomer + '\'' +
                 ", serviceName='" + serviceName + '\'' +
-                ", serviceType='" + serviceType + '\'' +
-                ", someContracts=" + someContracts +
-                ", advanceDeposit=" + advanceDeposit +
-                ", totalPayment=" + totalPayment +
                 '}';
     }
 
-
     @Override
     public int compareTo(Booking o) {
-        return this.dateStart.compareTo(o.dateStart);
+        return this.dateStart=o.dateStart;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dateStart, dateEnd);
     }
 }
 

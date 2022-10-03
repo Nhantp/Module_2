@@ -27,6 +27,7 @@ public class FacilityManagement {
                     break;
                 }
                 case 3:{
+                    iFacilityService.displayMaintenance();
                     break;
                 }
                 case 4:{

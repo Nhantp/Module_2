@@ -1,25 +1,27 @@
 package Case_Study.models;
 
+import java.util.Scanner;
+
 public class Employee extends Person {
-    private int level;
+    private String level;
     private String location;
     private double salary;
 
     public Employee() {
     }
 
-    public Employee(String idCode, String name, int dateOfBirth, String gender, int phoneNumber, String email, int level, String location, double salary) {
+    public Employee(int idCode, String name, int dateOfBirth, boolean gender, int phoneNumber, String email, String level, String location, double salary) {
         super(idCode, name, dateOfBirth, gender, phoneNumber, email);
         this.level = level;
         this.location = location;
         this.salary = salary;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
@@ -38,13 +40,29 @@ public class Employee extends Person {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+    public void infoEmployee(){
+        Scanner scanner=new Scanner(System.in);
+        infoPerson();
+        System.out.println("Nhap vao trinh do: ");
+        this.level=scanner.nextLine();
+        System.out.println("Nhap vao vi tri: ");
+        this.location=scanner.nextLine();
+        System.out.println("Nhap vap luong: ");
+        this.salary=Double.parseDouble(scanner.nextLine());
+    }
 
     @Override
     public String toString() {
-        return "Employee{"+super.toString()+
-                "level=" + level +
+        return "Employee{" +
+                "level='" + level + '\'' +
                 ", location='" + location + '\'' +
                 ", salary=" + salary +
+                ", idCode=" + idCode +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
