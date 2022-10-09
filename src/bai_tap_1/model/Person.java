@@ -1,28 +1,32 @@
 package bai_tap_1.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
+import java.util.Scanner;
 
-public abstract class Person implements Serializable {
-    private String id;
-    private String name;
-    private String dateOfBirth;
-    private String gender;
+public abstract class Person{
+    protected int id;
+    protected String name;
+    protected String dateOfBirth;
+    protected String gender;
 
-    public Person(String id, String name, String dateOfBirth, String gender) {
+    public Person(int id, String name, String dateOfBirth, String gender) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
     }
+
     Person(){
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -49,17 +53,39 @@ public abstract class Person implements Serializable {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    void info(){
+        Scanner scanner=new Scanner(System.in);
+            System.out.println("Nhap vao id:");
+            this.id = Integer.parseInt(scanner.nextLine());
+            System.out.println("Nhap vao ten:");
+            this.name= scanner.nextLine();
+            System.out.println("Nhap vao ngay sinh:");
+            this.dateOfBirth=scanner.nextLine();
+            System.out.println("Nhap vao gioi tinh:");
+            this.gender=scanner.nextLine();
+        }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(id, person.id);
+        return id == person.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return "Id: "+id+",  Tên: "+name+",  Ngày sinh: "+dateOfBirth+",  Giới tính: "+gender;
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
+
 }

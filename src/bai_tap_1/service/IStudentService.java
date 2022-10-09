@@ -1,7 +1,10 @@
 package bai_tap_1.service;
 
 public interface IStudentService {
-     void add();
-    void remove(String id);
+    void add();
+
+    void remove(int id);
+
     void display();
+    void edit();
 }

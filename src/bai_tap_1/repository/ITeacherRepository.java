@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ITeacherRepository {
-    public static final String FILE_NAME="src/bai_tap_1/data/teacher.dat";
+    String FILE_NAME = "D:\\Codegym\\A05\\Module_2\\src\\bai_tap_1\\data\\teadcher.csv";
 
     void add(Teacher teacher);
+    void edit();
 
     List<Teacher> getAll();
 }

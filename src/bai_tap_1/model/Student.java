@@ -1,20 +1,21 @@
 package bai_tap_1.model;
 
 
+import java.time.LocalDate;
+import java.util.Scanner;
+
 public class Student extends Person {
     private String class1;
     private float score;
+    Scanner scanner=new Scanner(System.in);
 
-    public Student(){
+    public Student() {
     }
 
-    public Student(String id, String name, String dateOfBirth, String gender, String class1, float score) {
+    public Student(int id, String name, String dateOfBirth, String gender, String class1, float score) {
         super(id, name, dateOfBirth, gender);
         this.class1 = class1;
         this.score = score;
-    }
-
-    public Student(String id) {
     }
 
     public String getClass1() {
@@ -33,10 +34,24 @@ public class Student extends Person {
         this.score = score;
     }
 
+    public void infoStudent() {
+        super.info();
+        System.out.println("Nhap vao lop: ");
+        this.class1=scanner.nextLine();
+        System.out.println("Nhap vao diem:");
+        this.score = Integer.parseInt(scanner.nextLine());
+
+    }
 
     @Override
     public String toString() {
-        return super.toString()+", Lớp: "+class1+",  Điểm: "+score;
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", gender='" + gender + '\'' +
+                "class1='" + class1 + '\'' +
+                ", score=" + score +
+                '}';
     }
-
 }

@@ -8,12 +8,13 @@ import java.util.List;
 
 public class StudentRepository implements IStudentRepository {
     ReadAndWriteStudent readAndWriteStudent=new ReadAndWriteStudent();
-    List<Student> studentList=readAndWriteStudent.readStudent(FILE_NAME);
+
+    List<Student>studentList=readAndWriteStudent.readFileStudent(FILE_NAME);
 
     @Override
     public void add(Student student) {
         studentList.add(student);
-    readAndWriteStudent.writeStudent(studentList,FILE_NAME);
+        readAndWriteStudent.writeFileStudent(studentList,FILE_NAME);
     }
 
     @Override

@@ -5,8 +5,10 @@ import bai_tap_1.model.Student;
 import java.util.List;
 
 public interface IStudentRepository {
-    String FILE_NAME="D:\\Codegym\\A05\\Module_2\\src\\bai_tap_1\\data\\student.dat";
+    String FILE_NAME = "D:\\Codegym\\A05\\Module_2\\src\\bai_tap_1\\data\\student.csv";
+
     void add(Student student);
-    List<Student>getAll();
+
+    List<Student> getAll();
 
 }

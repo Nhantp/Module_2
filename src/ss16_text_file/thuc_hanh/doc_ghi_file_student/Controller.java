@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class    Controller {
+public class
+Controller {
     List<Student> studentList = new ArrayList<>();
     Student student = new Student();
     Scanner scanner = new Scanner(System.in);

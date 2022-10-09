@@ -1,24 +1,25 @@
 package ss16_text_file.bai_tap.doc_file;
 
 public class Country {
-    private String id;
+    private int id;
     private String code;
     private String name;
 
     public Country() {
     }
 
-    public Country(String id, String code, String name) {
+    public Country(int id, String code, String name) {
         this.id = id;
         this.code = code;
         this.name = name;
     }
 
-    public String getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

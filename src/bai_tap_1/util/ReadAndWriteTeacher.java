@@ -1,39 +1,69 @@
 package bai_tap_1.util;
 
 import bai_tap_1.model.Teacher;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
+import java.awt.*;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteTeacher {
-    List<Teacher>teacherList=new ArrayList<>();
-    public List<Teacher>readTeacher(String filePath) {
-        ObjectInputStream ois=null;
+    public List<Teacher> readFileTeacher(String filePath) {
+        List<Teacher> teacherList = new ArrayList<>();
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
         try {
-            FileInputStream fis=new FileInputStream(filePath);
-            ois=new ObjectInputStream(fis);
-            teacherList=(List<Teacher>) ois.readObject();
-            if (ois != null) ois.close();
-        }catch (IOException e){
-            System.out.println("Loi file doc");
-        } catch (ClassNotFoundException e) {
+            fileReader = new FileReader(filePath);
+            bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(",");
+                int id = Integer.parseInt(temp[0]);
+                String name = temp[1];
+                String dateOfBirth=temp[2];
+                String gender = temp[3];
+                String specialize = temp[4];
+                Teacher teacher = new Teacher(id, name, dateOfBirth, gender, specialize);
+                teacherList.add(teacher);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                fileReader.close();
+                bufferedReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException();
+            }
         }
         return teacherList;
     }
-    public void writeTeacher(List<Teacher>teacherList,String filePath) {
-        ObjectOutputStream oos=null;
+
+    public void writeFileTeacher(List<Teacher> teacherList, String filePath) {
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
         try {
-            FileOutputStream fis=new FileOutputStream(filePath);
-            oos=new ObjectOutputStream(fis);
-            oos.writeObject(teacherList);
-        }catch (IOException e){
-            System.out.println("Loi file ghi");
-        }
-        finally {
-//            oos.close();
+            fileWriter = new FileWriter(filePath);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            String str = "";
+            for (Teacher teacher : teacherList) {
+                str += teacher.getId() + "," + teacher.getName() + "," + teacher.getDateOfBirth() + "," + teacher.getGender() +
+                        "," + teacher.getSpecialize()+"\n";
+            }
+            bufferedWriter.write(str);
+            bufferedWriter.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

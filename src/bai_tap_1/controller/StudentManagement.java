@@ -2,13 +2,14 @@ package bai_tap_1.controller;
 
 import bai_tap_1.service.IStudentService;
 import bai_tap_1.service.impl.StudentService;
+//import bai_tap_1.service.impl.StudentService;
 
 import java.util.Scanner;
 
 public class StudentManagement  {
-    private static final IStudentService iStudentService=new StudentService();
-    private static Scanner scanner = new Scanner(System.in);
     public static void studentMenu() {
+        IStudentService iStudentService=new StudentService();
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("1. Them vao hoc sinh.");
             System.out.println("2. Xoa hoc sinh.");
@@ -23,7 +24,7 @@ public class StudentManagement  {
                 }
                 case 2: {
                     System.out.println("Nhap vao hoc sinh co id can xoa: ");
-                    String id=scanner.nextLine();
+                    int id=Integer.parseInt(scanner.nextLine());
                     iStudentService.remove(id);
                     break;
                 }

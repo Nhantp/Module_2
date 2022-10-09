@@ -8,58 +8,66 @@ import bai_tap_1.service.ITeacherService;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class TeacherService implements ITeacherService {
-    private static final Scanner scanner = new Scanner(System.in);
-    private final ITeacherRepository iTeacherRepository = new TeacherRepository();
+    ITeacherRepository iTeacherRepository = new TeacherRepository();
+    List<Teacher> teacherList = iTeacherRepository.getAll();
+    Scanner scanner = new Scanner(System.in);
+    Teacher teacher = new Teacher();
 
     @Override
     public void add() {
-        Teacher teacher = this.infoTeacher();
+        teacher.infoTeacher();
         iTeacherRepository.add(teacher);
     }
 
-
-
     @Override
-    public void remove(String id) {
-        List<Teacher> teacherList = iTeacherRepository.getAll();
-        Teacher teacherObj=new Teacher();
-        for(Teacher teacher:teacherList){
-            if(teacher.getId().equals(id)){
-                teacherObj=teacher;
+    public void remove(int id) {
+        Teacher teacherObj = null;
+        for (Teacher teacher : teacherList) {
+            if (teacher.getId() == id) {
+                teacherObj = teacher;
             }
         }
-        int index=teacherList.indexOf(teacherObj);
-        if(index!=-1){
-            teacherList.remove(index);
+        if (teacherObj != null) {
+            teacherList.remove(teacherObj);
             System.out.println("Xoa thanh cong.");
-        }else {
+        } else {
             System.out.println("Not found");
         }
     }
 
     @Override
     public void display() {
-        List<Teacher> teacherList=iTeacherRepository.getAll();
-        for(Teacher teacher:teacherList){
+        for (Teacher teacher : teacherList) {
             System.out.println(teacher);
+        }
+    }
+
+    @Override
+    public void edit(int id) {
+        for (Teacher teacher : teacherList) {
+            if (teacher.getId() == id) {
+                do {
+                    System.out.println("1.sua ten");
+                    System.out.println("2.return");
+                    System.out.println("Nhap vao lua chon: ");
+                    int choice = Integer.parseInt(scanner.nextLine());
+                    switch (choice){
+                        case 1: {
+                            System.out.println("Nhap vao ten can sua: ");
+                            String name = scanner.nextLine();
+                            teacher.setName(name);
+                            iTeacherRepository.edit();
+                            break;
+                        }
+                        case 2:{
+                            return;
+                        }
+                    }
+                } while (true);
+            }
         }
 
     }
-
-    private Teacher infoTeacher() {
-        System.out.println("Nhap vao id:");
-        String id = scanner.nextLine();
-        System.out.println("Nhap vao ten:");
-        String name = scanner.nextLine();
-        System.out.println("Nhap vao ngay sinh:");
-        String dateOfBirth = scanner.nextLine();
-        System.out.println("Nhap vao gioi tinh:");
-        String gender = scanner.nextLine();
-        System.out.println("Nhap vao trinh do chuyen mon:");
-        String specialize = scanner.nextLine();
-        Teacher teacher = new Teacher(id, name, dateOfBirth, gender, specialize);
-        return teacher;
-    }
-
 }
