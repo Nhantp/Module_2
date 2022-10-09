@@ -16,9 +16,8 @@ public class CellPhoneRepository implements ICellPhoneRepository {
     }
 
     @Override
-    public void remove(int id) {
-        cellPhoneList.remove(id);
-        readAndWriteCellPhone.readFileCellPhone(FILE_NAME);
+    public void remove(CellPhone cellPhone) {
+        cellPhoneList.remove(cellPhone);
         readAndWriteCellPhone.writeFileCellPhone(cellPhoneList,FILE_NAME);
     }
 

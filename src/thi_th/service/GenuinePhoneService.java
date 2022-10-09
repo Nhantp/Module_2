@@ -37,7 +37,7 @@ public class GenuinePhoneService implements IGenuinePhoneService {
             }
         }
         if (genuinePhoneObj != null) {
-            genuinePhoneList.remove(genuinePhoneObj);
+            iGenuinePhoneRepository.remove(genuinePhoneObj);
             System.out.println("Xoa thanh cong: ");
         } else {
             System.out.println("Not found");

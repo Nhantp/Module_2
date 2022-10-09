@@ -18,7 +18,8 @@ public class GenuineRepository implements IGenuinePhoneRepository {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(GenuinePhone genuinePhone) {
+        genuinePhoneList.remove(genuinePhone);
         readAndWriteGenuinePhone.writeFileGenuinePhone(genuinePhoneList,FILE_NAME);
     }
 

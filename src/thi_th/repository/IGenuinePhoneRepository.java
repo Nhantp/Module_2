@@ -9,7 +9,7 @@ public interface IGenuinePhoneRepository {
     String FILE_NAME = "D:\\Codegym\\A05\\Module_2\\src\\thi_th\\data\\data\\mobile.csv";
 
     void addGenuinePhone(GenuinePhone genuinePhone);
-    void remove(int id);
+    void remove(GenuinePhone genuinePhone);
 
     List<GenuinePhone> findAll();
 }

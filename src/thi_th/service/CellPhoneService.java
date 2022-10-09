@@ -33,7 +33,7 @@ public class CellPhoneService implements ICellPhoneService {
             }
         }
         if (cellPhoneObj != null) {
-            cellPhoneList.remove(cellPhoneObj);
+            iCellPhoneRepository.remove(cellPhoneObj);
             System.out.println("Xoa thanh cong: ");
         } else {
             System.out.println("Not found");
